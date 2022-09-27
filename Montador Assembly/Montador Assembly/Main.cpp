@@ -361,7 +361,7 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 	}
 	else if(strstr(linha,"multu"))
 	{
-		function ="010001";
+		function ="011001";
 	}
 	else if(strstr(linha,"mult"))
 	{
@@ -401,7 +401,7 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 	}
 	else if(strstr(linha,"or"))
 	{
-		function ="100100";
+		function ="100101";
 	}
 	else if(strstr(linha,"sltu"))
 	{
@@ -588,7 +588,7 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 			cout << stringFinal << endl;
 			salvarArquivo(stringFinal,nomeArquivo);
 		}
-		else if(function == "011000" || function == "010001" || function == "011010" || function == "011011")
+		else if(function == "011000" || function == "011001" || function == "011010" || function == "011011")
 		{
 			stringFinal = opcode + registradores[0] + registradores[1] + "00000" + "00000" + function;
 			cout << stringFinal << endl;
