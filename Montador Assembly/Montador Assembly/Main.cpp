@@ -418,7 +418,39 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 	
 	for(int j = 0;j < 3;j++)
 	{
-		if(registradores[j]== "$t0" || registradores[j]== "$8")
+		if(registradores[j]=="$zero" || registradores[j]== "$0")
+		{
+			registradores[j]== "00000";
+		}
+		else if(registradores[j]=="$at" || registradores[j]== "$1")
+		{
+			registradores[j]== "00001";
+		}
+		else if(registradores[j]=="$v0" || registradores[j]== "$2")
+		{
+			registradores[j]== "00010";
+		}
+		else if(registradores[j]=="$v1" || registradores[j]== "$3")
+		{
+			registradores[j]== "00011";
+		}
+		else if(registradores[j]=="$a0" || registradores[j]== "$4")
+		{
+			registradores[j]== "00100";
+		}
+		else if(registradores[j]=="$a1" || registradores[j]== "$5")
+		{
+			registradores[j]== "00101";
+		}
+		else if(registradores[j]=="$a2" || registradores[j]== "$6")
+		{
+			registradores[j]== "00110";
+		}
+		else if(registradores[j]=="$a3" || registradores[j]== "$7")
+		{
+			registradores[j]== "00111";
+		}
+		else if(registradores[j]== "$t0" || registradores[j]== "$8")
 		{
 			registradores[j]= "01000"; 
 		}
@@ -482,6 +514,39 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 		{
 			registradores[j]= "10111";
 		}
+		else if(registradores[j]== "$t8" || registradores[j]== "$24")
+		{
+			registradores[j]= "11000";
+		}
+		else if(registradores[j]== "$t9" || registradores[j]== "$25")
+		{
+			registradores[j]= "11001";
+		}
+		else if(registradores[j]== "$k0" || registradores[j]== "$26")
+		{
+			registradores[j]= "11010";
+		}
+		else if(registradores[j]== "$k1" || registradores[j]== "$27")
+		{
+			registradores[j]= "11011";
+		}
+		else if(registradores[j]== "$gp" || registradores[j]== "$28")
+		{
+			registradores[j]= "11100";
+		}
+		else if(registradores[j]== "$sp" || registradores[j]== "$29")
+		{
+			registradores[j]= "11101";
+		}
+		else if(registradores[j]== "$fp" || registradores[j]== "$30")
+		{
+			registradores[j]= "11110";
+		}
+		else if(registradores[j]== "$ra" || registradores[j]== "$31")
+		{
+			registradores[j]= "11111";
+		}
+		
 	}
 	
 	if(opcode =="000010" || opcode =="000011") 
