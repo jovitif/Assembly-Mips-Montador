@@ -23,8 +23,8 @@ ofstream fout;
 
 
 void menuPrincipal() {
-	cout << "Seja bem vindo(a) ao montador (assembler) para o MIPS\nIrei converter o código que desejar para linguagem de máquina(0/1)\nEntre com um arquivo com código de montagem(assembly) do MIPS\nDigite o nome do arquivo com sua extensão (Exemplo: mips1.asm)";
-	cout << "\nOpção: ";
+	cout << "Seja bem vindo(a) ao montador (assembler) para o MIPS\nIrei converter o cÃ³digo que desejar para linguagem de mÃ¡quina(0/1)\nEntre com um arquivo com cÃ³digo de montagem(assembly) do MIPS\nDigite o nome do arquivo com sua extensÃ£o (Exemplo: mips1.asm)";
+	cout << "\nOpÃ§Ã£o: ";
 }
 
 void salvarArquivo(string binario, char * nomearquivo) {
@@ -43,7 +43,7 @@ void salvarArquivo(string binario, char * nomearquivo) {
 
 	if (!escreval.is_open())
 	{
-		cout << "Arquivo nÃ£o pode ser aberto!" << endl;
+		cout << "Arquivo nÃƒÂ£o pode ser aberto!" << endl;
 		system("pause");
 	}
 	escreval << binario << endl;
@@ -359,21 +359,21 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 	{
 		function ="010010";
 	}
-	else if(strstr(linha,"mult"))
-	{
-		function ="011000";
-	}
 	else if(strstr(linha,"multu"))
 	{
 		function ="010001";
 	}
-	else if(strstr(linha,"div"))
+	else if(strstr(linha,"mult"))
 	{
-		function ="011010";
+		function ="011000";
 	}
 	else if(strstr(linha,"divu"))
 	{
 		function ="011011";
+	}
+	else if(strstr(linha,"div"))
+	{
+		function ="011010";
 	}
 	else if(strstr(linha,"addi"))
 	{
@@ -387,13 +387,13 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 	{
 		function = "100000";
 	}
-	else if(strstr(linha,"sub"))
-	{
-		function ="100010";
-	}
 	else if(strstr(linha,"subu"))
 	{
 		function ="100011";
+	}
+	else if(strstr(linha,"sub"))
+	{
+		function ="100010";
 	}
 	else if(strstr(linha,"and"))
 	{
@@ -403,13 +403,13 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 	{
 		function ="100100";
 	}
-	else if(strstr(linha,"slt"))
-	{
-		function ="101010";
-	}
 	else if(strstr(linha,"sltu"))
 	{
 		function ="101011";
+	}
+	else if(strstr(linha,"slt"))
+	{
+		function ="101010";
 	}
 	else if(strstr(linha,"mul"))
 	{
