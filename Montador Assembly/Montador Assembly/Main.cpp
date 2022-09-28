@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<fstream>
 #include<string.h>
@@ -23,8 +24,8 @@ ofstream fout;
 
 
 void menuPrincipal() {
-	cout << "Seja bem vindo(a) ao montador (assembler) para o MIPS\nIrei converter o cÃ³digo que desejar para linguagem de mÃ¡quina(0/1)\nEntre com um arquivo com cÃ³digo de montagem(assembly) do MIPS\nDigite o nome do arquivo com sua extensÃ£o (Exemplo: mips1.asm)";
-	cout << "\nOpÃ§Ã£o: ";
+	cout << "Seja bem vindo(a) ao montador (assembler) para o MIPS\nIrei converter o código que desejar para linguagem de máquina(0/1)\nEntre com um arquivo com código de montagem(assembly) do MIPS\nDigite o nome do arquivo com sua extensão (Exemplo: mips1.asm)";
+	cout << "\nOpção: ";
 }
 
 void salvarArquivo(string binario, char * nomearquivo) {
@@ -37,7 +38,7 @@ void salvarArquivo(string binario, char * nomearquivo) {
 		j++;
 	}
 	arquivonovo[j] = '\0';
-	strcat(arquivonovo, ".txt");
+	strcat(arquivonovo, "2.txt");
 	ofstream escreval;
 	escreval.open(arquivonovo, ios_base::out | ios_base::app | ios_base::binary);
 
@@ -326,7 +327,7 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 						z++;
 					}
 					
-					for(z = 0;z < 5;z++)
+					for(z = 0;z < 100;z++)
 					{
 						
 						if(imediatoLabel == table[z].label)
@@ -675,7 +676,7 @@ int main() {
 		end = end +4;
 	}
 	fin.close();
-	
+
 	system("Pause");
 	return 0;
 }
