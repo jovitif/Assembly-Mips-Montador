@@ -44,7 +44,7 @@ void salvarArquivo(string binario, char * nomearquivo) {
 
 	if (!escreval.is_open())
 	{
-		cout << "Arquivo nÃ£o pode ser aberto!" << endl;
+		cout << "Arquivo nÃƒÂ£o pode ser aberto!" << endl;
 		system("pause");
 	}
 	escreval << binario << endl;
@@ -60,7 +60,10 @@ string obterLabel(char* linha) {
 	for (int i = 0; i < tam; i++) {
 		if (linha[i] == ':') {
 			for (int j = 0; j <= i - 1; j++, z++) {
-				label=label+linha[z];
+				if(linha[z]!='\t' && linha[z]!= '\0')
+				{
+					label=label+linha[z];
+				}
 			}
 			label[z] = '\0';
 		}
@@ -421,23 +424,23 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 	{
 		if(registradores[j]=="$zero" || registradores[j]== "$0")
 		{
-			registradores[j]== "00000";
+			registradores[j]= "00000";
 		}
 		else if(registradores[j]=="$at" || registradores[j]== "$1")
 		{
-			registradores[j]== "00001";
+			registradores[j]= "00001";
 		}
 		else if(registradores[j]=="$v0" || registradores[j]== "$2")
 		{
-			registradores[j]== "00010";
+			registradores[j]= "00010";
 		}
 		else if(registradores[j]=="$v1" || registradores[j]== "$3")
 		{
-			registradores[j]== "00011";
+			registradores[j]= "00011";
 		}
 		else if(registradores[j]=="$a0" || registradores[j]== "$4")
 		{
-			registradores[j]== "00100";
+			registradores[j]= "00100";
 		}
 		else if(registradores[j]=="$a1" || registradores[j]== "$5")
 		{
@@ -445,11 +448,11 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 		}
 		else if(registradores[j]=="$a2" || registradores[j]== "$6")
 		{
-			registradores[j]== "00110";
+			registradores[j]= "00110";
 		}
 		else if(registradores[j]=="$a3" || registradores[j]== "$7")
 		{
-			registradores[j]== "00111";
+			registradores[j]= "00111";
 		}
 		else if(registradores[j]== "$t0" || registradores[j]== "$8")
 		{
@@ -597,8 +600,9 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 		}
 		else if(opcode == "000100" || opcode == "000101")
 		{
+			
 			stringFinal = opcode + registradores[0] + registradores[1]; 
-			imediato = ((pc+4)-imediato)/4;
+			imediato = ((pc+4)-imediato) /4;
 			
 			if(imediato<0)
 			{
@@ -620,7 +624,6 @@ void ObterLinha(char* linha, int end, string opCode, char * nomeArquivo)
 			stringFinal = opcode + registradores[1] + registradores[0];
 			if(imediato <0)
 			{
-				
 				imediato = imediato* -1;
 				stringFinal = stringFinal + ComplementoDe2Para16(imediato);
 				cout << stringFinal << endl;
