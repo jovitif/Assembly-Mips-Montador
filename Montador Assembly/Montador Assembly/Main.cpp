@@ -5,7 +5,7 @@
 #include<string>
 #include<stdlib.h>
 #include<locale.h>
-#include <bitset>
+#include<bitset>
 #include<ctype.h>
 
 using namespace std;
@@ -28,6 +28,22 @@ void menuPrincipal() {
 	cout << "\nOp��o: ";
 }
 
+void limparArquivo(char * nomearquivo){
+	char arquivonovo[30];
+	for (int i = 0; i <= strlen(nomearquivo); i++) {
+		arquivonovo[i] = nomearquivo[i];
+	}
+	int j = 0;
+	while (arquivonovo[j] != '.') {
+		j++;
+	}
+	arquivonovo[j] = '\0';
+	strcat(arquivonovo, "bin.txt");
+	ofstream escreval;
+	escreval.open(arquivonovo, ios_base::out | ios_base::trunc);
+	escreval << "";
+}
+
 void salvarArquivo(string binario, char * nomearquivo) {
 	char arquivonovo[30];
 	for (int i = 0; i <= strlen(nomearquivo); i++) {
@@ -38,13 +54,13 @@ void salvarArquivo(string binario, char * nomearquivo) {
 		j++;
 	}
 	arquivonovo[j] = '\0';
-	strcat(arquivonovo, "2.txt");
+	strcat(arquivonovo, "bin.txt");
 	ofstream escreval;
-	escreval.open(arquivonovo, ios_base::out | ios_base::app | ios_base::binary);
+	escreval.open(arquivonovo, ios_base::out | ios_base::app);
 
 	if (!escreval.is_open())
 	{
-		cout << "Arquivo nÃƒÂ£o pode ser aberto!" << endl;
+		cout << "Arquivo nao pode ser aberto!" << endl;
 		system("pause");
 	}
 	escreval << binario << endl;
@@ -656,7 +672,7 @@ int main() {
 	string opCode;
 	ifstream fin;
 	char nomeArquivo[30]; menuPrincipal(); cin >> nomeArquivo;
-	
+	limparArquivo(nomeArquivo);
 	fin.open(nomeArquivo);
 	if (!fin.is_open()) { cout << "Erro na abertura do arquivo!\n";}
 	while (fin.good()) {
